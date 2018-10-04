@@ -28,7 +28,6 @@ namespace ConsoleApp3
             catch (Exception e) { Console.WriteLine("input error: " + e.Message); }
         }
 
-
     }
     public class SimpleFactory
     {
