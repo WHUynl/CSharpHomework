@@ -8,6 +8,10 @@ namespace HOMEWORK7
 {
     public class Order : OrderDetails
     {
+        public Order()
+        {
+
+        }
         public Order(string a, double b, double c, string d, string f)
         {
             thing = a;

@@ -4,10 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization;
 namespace HOMEWORK7
 {
+    [Serializable]
     public class OrderService:OrderDetails
     {
+        public OrderService()
+        {
+        }
 
         public List<Order> orders = new List<Order>();
         public void setList(Order a)
@@ -88,6 +95,15 @@ namespace HOMEWORK7
                 return "Nothing";
             }
             return "wrong";
+        }
+        public XmlSerializer Export(List<Order> od)
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream("s.xml", FileMode.Create))
+            {
+                xml.Serialize(fs, od);
+            }
+            return xml;
         }
     }
 }

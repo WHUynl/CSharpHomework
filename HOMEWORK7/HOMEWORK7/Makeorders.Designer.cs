@@ -80,7 +80,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(292, 15);
             this.label1.TabIndex = 5;
-            this.label1.Text = "请依次输入物品，数量，价格，买家，编号";
+            this.label1.Text = "请依次输入物品，数量，价格，电话，编号";
             // 
             // button1
             // 

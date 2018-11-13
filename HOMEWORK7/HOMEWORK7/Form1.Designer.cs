@@ -42,9 +42,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.orderServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.orderServiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +104,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "请输入编号，物品，或买家";
+            this.label2.Text = "请输入编号，物品，或电话";
             // 
             // textBox2
             // 
@@ -164,15 +166,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(322, 15);
             this.label4.TabIndex = 17;
-            this.label4.Text = "显示分别分别为物品，数量，价格，买家，编号";
-            // 
-            // orderServiceBindingSource
-            // 
-            this.orderServiceBindingSource.DataSource = typeof(HOMEWORK7.OrderService);
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(HOMEWORK7.Order);
+            this.label4.Text = "显示分别分别为物品，数量，价格，电话，编号";
             // 
             // listBox1
             // 
@@ -184,11 +178,41 @@
             this.listBox1.Size = new System.Drawing.Size(322, 274);
             this.listBox1.TabIndex = 21;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(716, 213);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(46, 75);
+            this.button7.TabIndex = 23;
+            this.button7.Text = "获取XML文件";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // orderServiceBindingSource
+            // 
+            this.orderServiceBindingSource.DataSource = typeof(HOMEWORK7.OrderService);
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(HOMEWORK7.Order);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(637, 209);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(40, 112);
+            this.button8.TabIndex = 24;
+            this.button8.Text = "XSLT";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button6);
@@ -232,6 +256,8 @@
         private System.Windows.Forms.BindingSource orderBindingSource;
         private System.Windows.Forms.BindingSource orderServiceBindingSource;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -7,9 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml.Serialization;
+using System.Xml.XPath;
+using System.Xml.Xsl;
+using System.Xml;
+using System.IO;
 namespace HOMEWORK7
 {
+    [Serializable]
     public partial class Form1 : Form
     {
         
@@ -114,5 +119,61 @@ namespace HOMEWORK7
         {
            
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var a = one.Export(one.orders);
+            Console.WriteLine(File.ReadAllText("s.xml"));
+            using (FileStream fs = new FileStream("s.xml", FileMode.Open))
+            {
+                List<Order> orders2 = (List<Order>)a.Deserialize(fs);
+                foreach (Order mine in orders2)
+                {
+                    Console.WriteLine(mine);
+                }
+            }
+            bool bFile = File.Exists("s.xml");
+
+            if (bFile)
+            {
+                textBox1.Text = "成功！";
+            }
+            else
+            {
+                textBox1.Text = "失败！";
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"C:\Users\YNL\source\repos\Yanshi\HOMEWORK7\HOMEWORK7\bin\Debug\s.xml");
+
+                XPathNavigator nav = doc.CreateNavigator();
+                nav.MoveToRoot();
+
+                XslCompiledTransform xt = new XslCompiledTransform();
+                xt.Load(@"C:\Users\YNL\source\repos\Yanshi\HOMEWORK7\HOMEWORK7\s.xslt");
+
+                FileStream outFileStream = File.OpenWrite(@"C:\Users\YNL\source\repos\Yanshi\HOMEWORK7\HOMEWORK7\bin\Debug\BoolList.html");
+                XmlTextWriter writer =
+                    new XmlTextWriter(outFileStream, System.Text.Encoding.UTF8);
+                xt.Transform(nav, null, writer);
+
+            }
+            catch (XmlException v)
+            {
+                textBox1.Text = v.ToString();
+            }
+            catch(XsltException v)
+            {
+                textBox1.Text = v.ToString();
+            }
+
+        }
     }
+      
+    
 }
